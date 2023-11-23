@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Netflix Clone",
-  description: "",
+  description: "Created by Facundo Fernandez",
 };
 
 export default function RootLayout({

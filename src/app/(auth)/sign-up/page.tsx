@@ -3,8 +3,15 @@ import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import GithubSignInButton from "@/components/GithubSignInButton";
 import GoogleSignInButton from "@/components/GoogleSignInButton";
+import { authOptions } from "@/utils/auth";
+import { getServerSession } from "next-auth/next";
+import { redirect } from "next/navigation";
 
-export default function SignUp() {
+export default async function SignUp() {
+  const session = await getServerSession(authOptions);
+
+  if (session) redirect("/home");
+
   return (
     <div className="mt-24 rounded bg-black/80 py-10 px-6 md:mt-0 md:max-w-sm md:px-14">
       <form>

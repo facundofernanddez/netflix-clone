@@ -12,6 +12,11 @@ interface linkProps {
   href: string;
 }
 
+interface NavbarProps {
+  email: string;
+  name: string;
+}
+
 const links: linkProps[] = [
   { name: "Home", href: "/home" },
   { name: "Tv Shows", href: "/home/shows" },
@@ -20,7 +25,7 @@ const links: linkProps[] = [
   { name: "My List", href: "/home/user/list" },
 ];
 
-export default function Navbar() {
+export default function Navbar({ email, name }: NavbarProps) {
   const pathName = usePathname();
 
   return (
@@ -66,7 +71,10 @@ export default function Navbar() {
       <div className="flex items-center gap-x-8">
         <Search className="w-5 h-5 text-gray-300 cursor-pointer" />
         <Bell className="h-5 w-5 text-gray-300 cursor-pointer" />
-        <UserNav />
+        <UserNav
+          email={email}
+          name={name}
+        />
       </div>
     </div>
   );

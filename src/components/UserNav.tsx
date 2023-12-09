@@ -12,7 +12,12 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 
-export default function UserNav() {
+interface UserNavProps {
+  email: string;
+  name: string;
+}
+
+export default function UserNav({ email, name }: UserNavProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -34,9 +39,9 @@ export default function UserNav() {
       >
         <DropdownMenuLabel>
           <div className="flex flex-col space-y-1">
-            <p className="text-sm font-medium leading-none">Facu</p>
+            <p className="text-sm font-medium leading-none truncate">{name}</p>
             <p className="text-xs leading-none text-muted-foreground">
-              hola jejeje
+              {email}
             </p>
           </div>
         </DropdownMenuLabel>

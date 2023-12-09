@@ -14,7 +14,10 @@ export default async function HomeLayout({
   if (!session) redirect("/login");
   return (
     <>
-      <Navbar />
+      <Navbar
+        email={session.user?.email as string}
+        name={session.user?.name as string}
+      />
       <main className="w-full max-w-7xl mx-auto sm:px-6 lg:px-8">
         {children}
       </main>
